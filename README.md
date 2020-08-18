@@ -26,7 +26,6 @@ test").
         - http://www.brooksbaseball.net/tabs.php?player=519242&p_hand=-1&tto=-1&ppos=-1&cn=200&compType=none&risp=0&1b=0&2b=0&3b=0&rType=perc&gFilt=regular&time=month&minmax=ci&var=usage&s_type=2&startDate=01/01/2017&endDate=01/01/2018&balls=-1&strikes=-1&b_hand=-1
         - pitch usage tables sortable by baserunners, pitch type, and count type (even, full, batter ahead, etc.)
         - pitch outcomes by count
-        - 
 - Webscraping Support for FanGraphs
     - Use requests, BeautifulSoup libraries, maybe re (regular expressions), too
     - Create functional interface to accept URL query params and find desired webpage (2ish main ones)
@@ -34,14 +33,13 @@ test").
             - e.g. Chris Sale Pitching Play Log base URL: fangraphs.com/players/chris-sale/10603/play-log?
             - Query params: position=P, season=2017
             - Want to be able to input pitcher name and season and return play log df
-            - 
         - Batter Splits
             - e.g. Aaron Judge Batting Splits Tool base URL: fangraphs.com/players/aaron-judge/15640/splits-tool?
             - Query Params: splitArr=&splitArrPitch=&position=B&autoPt=false&splitTeams=false&statType=player&
                 statgroup=1&startDate=2002-01-01&endDate=2019-11-01&players=&filter=&groupBy=season&sort=-1,1
             - Important splits for now:
                 - vs RHP
-                - Cituation (outs,runners)
+                - Situation (outs,runners)
                 - Count
                 - Pitch type
             - Want to be able to input batter name, season, and desired splits to return df

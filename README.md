@@ -10,22 +10,27 @@ project will be built incrementally, starting with minimal features and situatio
 for every baseball situation. Predictors will include pitcher and batter histories, number of outs, men on base, and runs
 scored. Output will be pitch type and location (e.g. slider low and away). Pitch predictions will be considered satisfactory 
 if they show success under cross-validation and make sense to a person with good baseball knowledge (a.k.a. "pass the eye 
-test").
+test"). Note again that the goal of this project is to decide the *best* pitch to throw, not necesarily what pitch a batter
+should expect (given pitch usage histories, for example), although intelligent support for pitch choice based on previous
+pitch usage may be considered at some point in development.
 ***
 ## To Do:
-- Just download some CSVs of the data you expect to scrape to get started on algorithms
-    - thebaseballcube has some detailed splits and play-by-play info
-        - e.g. http://www.thebaseballcube.com/players/profile.asp?Y=2017&ID=146981&View=SplitsP
-            - Chris Sale 2017 pitching splits
-            - Includes info on count, outs, baserunners,etc.
-        - e.g. http://www.thebaseballcube.com/players/profile.asp?Y=2017&ID=146981&View=LogP
-            - Chris Sale 2017 pitching game logs
-            - Include pitches thrown in each PA, balls/strikes, contact, play result, etc.
-        - Maybe automate scraping from here instead of fangraphs
-    - BrooksBaseball has some great pitch info too, with pitchfx tracking
-        - http://www.brooksbaseball.net/tabs.php?player=519242&p_hand=-1&tto=-1&ppos=-1&cn=200&compType=none&risp=0&1b=0&2b=0&3b=0&rType=perc&gFilt=regular&time=month&minmax=ci&var=usage&s_type=2&startDate=01/01/2017&endDate=01/01/2018&balls=-1&strikes=-1&b_hand=-1
-        - pitch usage tables sortable by baserunners, pitch type, and count type (even, full, batter ahead, etc.)
-        - pitch outcomes by count
+- Choose/design best pitch algorithm from currently scrapable data
+    - Remember original plan to choose objective function by current situation
+    - Compare generated best pitch suggestions to pitch usage histories from Brooks BB
+    - Need to adjust pitch selector function params for cleanliness and control
+        - Make it possible to enter all game state params as single dict
+        - Allow user to specify history combination method in function call
+        - Allow user to specify other params for internal functions in function call
+        - Maybe just allow user to call function with no inputs to trigger interactive input questionnaire
+
+- thebaseballcube has some detailed splits and play-by-play info
+    - e.g. http://www.thebaseballcube.com/players/profile.asp?Y=2017&ID=146981&View=SplitsP
+        - Chris Sale 2017 pitching splits
+        - Includes info on count, outs, baserunners,etc.
+    - e.g. http://www.thebaseballcube.com/players/profile.asp?Y=2017&ID=146981&View=LogP
+        - Chris Sale 2017 pitching game logs
+        - Include pitches thrown in each PA, balls/strikes, contact, play result, etc.
 - Webscraping Support for FanGraphs
     - Use requests, BeautifulSoup libraries, maybe re (regular expressions), too
     - Create functional interface to accept URL query params and find desired webpage (2ish main ones)
